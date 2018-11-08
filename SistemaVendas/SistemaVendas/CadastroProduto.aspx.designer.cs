@@ -10,7 +10,7 @@
 namespace SistemaVendas {
     
     
-    public partial class CadastroCliente {
+    public partial class CadastroProduto {
         
         /// <summary>
         /// Controle txtNome.
@@ -22,57 +22,39 @@ namespace SistemaVendas {
         protected global::System.Web.UI.WebControls.TextBox txtNome;
         
         /// <summary>
-        /// Controle txtTelefone.
+        /// Controle txtValor.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTelefone;
+        protected global::System.Web.UI.WebControls.TextBox txtValor;
         
         /// <summary>
-        /// Controle txtEmail.
+        /// Controle list_fornecedor.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmail;
+        protected global::System.Web.UI.WebControls.DropDownList list_fornecedor;
         
         /// <summary>
-        /// Controle txtCpf.
+        /// Controle btnCadastro.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCpf;
+        protected global::System.Web.UI.WebControls.Button btnCadastro;
         
         /// <summary>
-        /// Controle Button1.
+        /// Controle lblResultado.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
-        
-        /// <summary>
-        /// Controle lblResult.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblResult;
-        
-        /// <summary>
-        /// Controle gridClientes.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gridClientes;
+        protected global::System.Web.UI.WebControls.Label lblResultado;
     }
 }

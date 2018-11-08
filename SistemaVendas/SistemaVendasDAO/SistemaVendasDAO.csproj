@@ -44,6 +44,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MySql.Data">
+      <HintPath>..\..\Database\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -70,6 +73,10 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\ClienteDAO.cs" />
+    <Compile Include="DAO\FornecedorDAO.cs" />
+    <Compile Include="DAO\ProdutoDAO.cs" />
+    <Compile Include="DBConnection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -80,6 +87,12 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SistemaVendasObjetos\SistemaVendasObjetos.csproj">
+      <Project>{e0dc23ff-dde8-451c-b9e6-8749533bb426}</Project>
+      <Name>SistemaVendasObjetos</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

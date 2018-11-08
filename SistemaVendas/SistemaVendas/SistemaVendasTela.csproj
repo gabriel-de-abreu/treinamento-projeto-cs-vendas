@@ -44,6 +44,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MySql.Data, Version=6.9.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Database\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -68,6 +72,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CadastroCliente.aspx" />
+    <Content Include="CadastroFornecedor.aspx" />
+    <Content Include="CadastroProduto.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -78,6 +84,20 @@
     </Compile>
     <Compile Include="CadastroCliente.aspx.designer.cs">
       <DependentUpon>CadastroCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CadastroFornecedor.aspx.cs">
+      <DependentUpon>CadastroFornecedor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CadastroFornecedor.aspx.designer.cs">
+      <DependentUpon>CadastroFornecedor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CadastroProduto.aspx.cs">
+      <DependentUpon>CadastroProduto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CadastroProduto.aspx.designer.cs">
+      <DependentUpon>CadastroProduto.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -104,6 +124,16 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SistemaVendasBS\SistemaVendasBS.csproj">
+      <Project>{6c67f625-eb5a-42c0-980c-d8a16b03bed9}</Project>
+      <Name>SistemaVendasBS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SistemaVendasObjetos\SistemaVendasObjetos.csproj">
+      <Project>{e0dc23ff-dde8-451c-b9e6-8749533bb426}</Project>
+      <Name>SistemaVendasObjetos</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
