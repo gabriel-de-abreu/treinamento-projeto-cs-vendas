@@ -62,11 +62,21 @@ namespace SistemaVendas
         protected void gridClientes_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             Cliente cliente = ClienteBS.Read(Convert.ToInt32(e.CommandArgument));
-            txtNome.Text = cliente.Nome;
-            txtTelefone.Text = cliente.Telefone;
-            txtEmail.Text = cliente.Email;
-            txtCpf.Text = cliente.CPF;
-            SetEditMode(cliente.Id);
+            switch (e.CommandName)
+            {
+                case "EditCustomer":
+                    txtNome.Text = cliente.Nome;
+                    txtTelefone.Text = cliente.Telefone;
+                    txtEmail.Text = cliente.Email;
+                    txtCpf.Text = cliente.CPF;
+                    SetEditMode(cliente.Id);
+                    break;
+                case "DeleteCustomer":
+                    ClienteBS.Delete(cliente);
+                    ReloadGrid();
+                    break;
+            }
+
             ClearLabel();
         }
 

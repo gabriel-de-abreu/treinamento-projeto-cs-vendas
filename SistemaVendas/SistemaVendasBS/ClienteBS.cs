@@ -15,11 +15,6 @@ namespace SistemaVendasBS
             return new ClienteDAO().Create(cliente);
         }
 
-        public static DataTable GetAll()
-        {
-            return new ClienteDAO().GetAll();
-        }
-
         public static Cliente Read(int id)
         {
             return new ClienteDAO().Read(id);
@@ -28,6 +23,16 @@ namespace SistemaVendasBS
         public static Cliente Update(Cliente cliente)
         {
             return new ClienteDAO().Update(cliente);
+        }
+
+        public static Cliente Delete(Cliente cliente)
+        {
+            return new ClienteDAO().Delete(cliente);
+        }
+
+        public static DataTable GetAll()
+        {
+            return new ClienteDAO().GetAll();
         }
     }
 }

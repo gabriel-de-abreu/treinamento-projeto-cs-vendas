@@ -55,6 +55,11 @@
                                 <asp:LinkButton ID="Button2" runat="server" Text="Editar" CommandArgument='<%# Bind("idCliente") %>' CommandName="EditCustomer" />
                             </ItemTemplate>
                         </asp:TemplateField>
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <asp:LinkButton ID="Button3" runat="server" Text="Deletar" CommandArgument='<%# Bind("idCliente") %>' CommandName="DeleteCustomer" />
+                            </ItemTemplate>
+                        </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
             </div>
