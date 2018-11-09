@@ -24,6 +24,11 @@ namespace SistemaVendasBS
         {
             return new FornecedorDAO().Update(fornecedor);
         }
+
+        public static Fornecedor Delete(Fornecedor fornecedor)
+        {
+            return new FornecedorDAO().Delete(fornecedor);
+        }
         public static DataTable GetAll()
         {
             return new FornecedorDAO().GetAll();

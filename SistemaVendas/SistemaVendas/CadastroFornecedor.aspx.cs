@@ -18,7 +18,7 @@ namespace SistemaVendas
             {
                 editMode = Convert.ToInt32(Session["EditModeFornecedor"]);
             }
-            ReloadTable();
+            ReloadGrid();
         }
 
         protected void btnCadastrar_Click(object sender, EventArgs e)
@@ -51,16 +51,26 @@ namespace SistemaVendas
                 }
             }
             SetEditMode(-1);
-            ReloadTable();
+            ReloadGrid();
         }
 
         protected void gridFornecedores_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             Fornecedor fornecedor = FornecedorBS.Read(Convert.ToInt32(e.CommandArgument));
-            txtNome.Text = fornecedor.Nome;
-            txtNomeEmpresa.Text = fornecedor.NomeEmpresa;
-            txtTelefone.Text = fornecedor.Telefone;
-            SetEditMode(fornecedor.Id);
+            switch (e.CommandName)
+            {
+                case "EditFornecedor":
+                    txtNome.Text = fornecedor.Nome;
+                    txtNomeEmpresa.Text = fornecedor.NomeEmpresa;
+                    txtTelefone.Text = fornecedor.Telefone;
+                    SetEditMode(fornecedor.Id);
+                    break;
+
+                case "DeleteFornecedor":
+                    FornecedorBS.Delete(fornecedor);
+                    ReloadGrid();
+                    break;
+            }
             ClearLabel();
         }
 
@@ -79,7 +89,7 @@ namespace SistemaVendas
             }
         }
 
-        private void ReloadTable()
+        private void ReloadGrid()
         {
             gridFornecedores.DataSource = FornecedorBS.GetAll();
             gridFornecedores.DataBind();

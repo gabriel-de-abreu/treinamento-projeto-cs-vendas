@@ -61,6 +61,18 @@ namespace SistemaVendasDAO.DAO
             return null;
         }
 
+        public Fornecedor Delete(Fornecedor fornecedor)
+        {
+            MySqlCommand command = DBConnection.Instance.CreateCommand();
+            command.CommandText = "DELETE FROM `fornecedor` WHERE idFornecedor = @id";
+            command.Parameters.AddWithValue("@id", fornecedor.Id);
+            if (command.ExecuteNonQuery() > 0)
+            {
+                return fornecedor;
+            }
+            return null;
+        }
+
         public DataTable GetAll()
         {
             DataTable table = new DataTable();

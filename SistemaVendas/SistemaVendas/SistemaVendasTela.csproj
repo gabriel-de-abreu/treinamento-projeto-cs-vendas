@@ -75,6 +75,7 @@
     <Content Include="CadastroFornecedor.aspx" />
     <Content Include="CadastroProduto.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Vendas.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -103,6 +104,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Vendas.aspx.cs">
+      <DependentUpon>Vendas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vendas.aspx.designer.cs">
+      <DependentUpon>Vendas.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ViewMaster.Master.cs">
       <DependentUpon>ViewMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

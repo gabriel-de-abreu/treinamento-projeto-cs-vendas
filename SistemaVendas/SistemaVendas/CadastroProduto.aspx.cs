@@ -72,7 +72,15 @@ namespace SistemaVendas
                 case "EditProduto":
                     txtNome.Text = produto.Nome;
                     txtValor.Text = produto.Valor.ToString();
-                    list_fornecedor.SelectedValue = produto.IdFornecedor.ToString();
+                    try
+                    {
+                        list_fornecedor.SelectedValue = produto.IdFornecedor.ToString();
+
+                    }
+                    catch (Exception)
+                    {
+
+                    }
                     SetEditMode(produto.Id);
                     break;
                 case "DeleteProduto":

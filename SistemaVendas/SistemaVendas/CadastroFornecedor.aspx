@@ -23,7 +23,7 @@
     </div>
     <div class="row">
         <div class="container">
-            <asp:GridView ID="gridFornecedores" runat="server" AutoGenerateColumns="False" OnRowCommand="gridFornecedores_RowCommand" CssClass ="table">
+            <asp:GridView ID="gridFornecedores" runat="server" AutoGenerateColumns="False" OnRowCommand="gridFornecedores_RowCommand" CssClass="table">
                 <Columns>
                     <asp:TemplateField HeaderText="Nome">
                         <EditItemTemplate>
@@ -52,6 +52,11 @@
                     <asp:TemplateField>
                         <ItemTemplate>
                             <asp:LinkButton ID="Button2" runat="server" Text="Editar" CommandArgument='<%# Bind("idFornecedor") %>' CommandName="EditFornecedor" />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField>
+                        <ItemTemplate>
+                            <asp:LinkButton ID="Button3" runat="server" Text="Delete" CommandArgument='<%# Bind("idFornecedor") %>' CommandName="DeleteFornecedor" />
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>

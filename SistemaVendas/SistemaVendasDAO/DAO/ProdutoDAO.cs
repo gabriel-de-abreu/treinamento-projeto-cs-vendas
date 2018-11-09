@@ -34,7 +34,7 @@ namespace SistemaVendasDAO
             Produto produto = null;
             while (reader.Read())
             {
-                produto = new Produto(reader["nomeProduto"].ToString(), float.Parse(reader["valorProduto"].ToString()), Convert.ToInt32(reader["Fornecedor_idFornecedor"]))
+                produto = new Produto(reader["nomeProduto"].ToString(), float.Parse(reader["valorProduto"].ToString()), reader["Fornecedor_idFornecedor"] is DBNull ? 1 : Convert.ToInt32(reader["Fornecedor_idFornecedor"]))
                 {
                     Id = Convert.ToInt32(reader["idProduto"])
                 };
