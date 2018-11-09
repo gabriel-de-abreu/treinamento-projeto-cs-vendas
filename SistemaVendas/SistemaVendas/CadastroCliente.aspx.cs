@@ -2,10 +2,6 @@
 using SistemaVendasBS;
 using SistemaVendasObjetos;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace SistemaVendas
@@ -25,6 +21,11 @@ namespace SistemaVendas
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            if (!ValidateFields())
+            {
+                lblResult.Text = "<div class=\"alert alert-danger\" role=\"alert\">Dados Inválidos, os campos não podem ser vazios!!</div>";
+                return;
+            }
             if (editMode == -1)
             {
                 try
@@ -34,7 +35,7 @@ namespace SistemaVendas
                 }
                 catch (MySqlException)
                 {
-                    lblResult.Text = "<div class=\"alert alert-danger\" role=\"alert\">Cliente já Cadastrado!!</div>";
+                    lblResult.Text = "<div class=\"alert alert-danger\" role=\"alert\">Cliente já Cadastrado!</div>";
                 }
             }
             else
@@ -110,5 +111,16 @@ namespace SistemaVendas
         {
             lblResult.Text = "";
         }
+
+        private bool ValidateFields()
+        {
+            if (txtNome.Text.Equals("") || txtTelefone.Text.Equals("") || txtEmail.Text.Equals("") || txtCpf.Text.Equals(""))
+            {
+                return false;
+            }
+            return true;
+        }
     }
+
+
 }

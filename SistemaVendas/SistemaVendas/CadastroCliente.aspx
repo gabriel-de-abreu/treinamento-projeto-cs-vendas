@@ -16,7 +16,7 @@
             </div>
             <div class="form-group">
                 <label>Telefone</label>
-                <asp:TextBox ID="txtTelefone" runat="server" CssClass="form-control"></asp:TextBox>
+                <asp:TextBox ID="txtTelefone" runat="server" CssClass="form-control" TextMode="Phone"></asp:TextBox>
             </div>
             <div class="form-group">
                 <label>Email</label>
@@ -24,7 +24,7 @@
             </div>
             <div class="form-group">
                 <label>CPF</label>
-                <asp:TextBox ID="txtCpf" runat="server" CssClass="form-control"></asp:TextBox>
+                <asp:TextBox ID="txtCpf" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
             </div>
             <asp:Button ID="Button1" runat="server" Text="Cadastrar" OnClick="Button1_Click" CssClass="btn btn-dark" />
             <div class="margin-top">
