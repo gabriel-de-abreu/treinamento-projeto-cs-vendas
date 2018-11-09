@@ -50,7 +50,6 @@ namespace SistemaVendas
                 catch (MySqlException)
                 {
                     lblResult.Text = "<div class=\"alert alert-danger\" role=\"alert\">CPF já cadastrado!</div>";
-
                 }
             }
             SetEditMode(-1);
@@ -73,6 +72,7 @@ namespace SistemaVendas
                 case "DeleteCustomer":
                     ClienteBS.Delete(cliente);
                     ReloadGrid();
+                    SetEditMode(-1);
                     break;
             }
 

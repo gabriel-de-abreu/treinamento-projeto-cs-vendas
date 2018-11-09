@@ -35,11 +35,11 @@ namespace SistemaVendas
                 try
                 {
                     ProdutoBS.Create(new Produto(txtNome.Text, float.Parse(txtValor.Text), Convert.ToInt32(list_fornecedor.SelectedValue)));
-                    lblResultado.Text = "Produto cadastrado com sucesso!";
+                    lblResultado.Text = "<div class=\"alert alert-success\" role=\"alert\">Produto cadastrado com sucesso!</div>";
                 }
                 catch (Exception)
                 {
-                    lblResultado.Text = "Produto já cadastrado!";
+                    lblResultado.Text = "<div class=\"alert alert-danger\" role=\"alert\">Produto já cadastrado!</div>";
                 }
             }
             else
@@ -50,11 +50,11 @@ namespace SistemaVendas
                     {
                         Id = editMode
                     });
-                    lblResultado.Text = "Produto alterado com sucesso!";
+                    lblResultado.Text = "<div class=\"alert alert-success\" role=\"alert\">Produto alterado com sucesso!</div>";
                 }
                 catch (Exception)
                 {
-                    lblResultado.Text = "Produto já cadastrado!";
+                    lblResultado.Text = "<div class=\"alert alert-danger\" role=\"alert\">Produto já cadastrado!</div>";
                 }
             }
 
@@ -85,6 +85,7 @@ namespace SistemaVendas
                     break;
                 case "DeleteProduto":
                     ProdutoBS.Delete(produto);
+                    SetEditMode(-1);
                     ReloadGrid();
                     break;
             }

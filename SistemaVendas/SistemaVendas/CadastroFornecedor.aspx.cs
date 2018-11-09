@@ -28,11 +28,11 @@ namespace SistemaVendas
                 try
                 {
                     FornecedorBS.Create(new Fornecedor(txtNome.Text, txtNomeEmpresa.Text, txtTelefone.Text));
-                    lblResultado.Text = "Fornecedor cadastrado com sucesso!";
+                    lblResultado.Text = "<div class=\"alert alert-success\" role=\"alert\">Fornecedor cadastrado com sucesso!</div>";
                 }
                 catch (Exception)
                 {
-                    lblResultado.Text = "Fornecedor já cadastrado!";
+                    lblResultado.Text = "<div class=\"alert alert-danger\" role=\"alert\">Fornecedor já Cadastrado!</div>";
                 }
             }
             else
@@ -43,11 +43,11 @@ namespace SistemaVendas
                     {
                         Id = Convert.ToInt32(Session["EditModeFornecedor"])
                     });
-                    lblResultado.Text = "Fornecedor alterado com sucesso!";
+                    lblResultado.Text = "<div class=\"alert alert-success\" role=\"alert\">Fornecedor alterado com sucesso!</div>";
                 }
                 catch (Exception)
                 {
-                    lblResultado.Text = "Fornecedor já cadastrado!";
+                    lblResultado.Text = "<div class=\"alert alert-danger\" role=\"alert\">Fornecedor já Cadastrado!!</div>";
                 }
             }
             SetEditMode(-1);
@@ -68,6 +68,7 @@ namespace SistemaVendas
 
                 case "DeleteFornecedor":
                     FornecedorBS.Delete(fornecedor);
+                    SetEditMode(-1);
                     ReloadGrid();
                     break;
             }
