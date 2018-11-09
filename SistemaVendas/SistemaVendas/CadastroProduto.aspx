@@ -29,7 +29,7 @@
     </div>
     <div class="row">
         <div class="container">
-            <asp:GridView ID="gridProdutos" runat="server" AutoGenerateColumns="False" OnRowCommand="gridProdutos_RowCommand" CssClass ="table">
+            <asp:GridView ID="gridProdutos" runat="server" AutoGenerateColumns="False" OnRowCommand="gridProdutos_RowCommand" CssClass="table">
                 <Columns>
                     <asp:TemplateField HeaderText="Nome">
                         <EditItemTemplate>
@@ -58,6 +58,11 @@
                     <asp:TemplateField>
                         <ItemTemplate>
                             <asp:LinkButton ID="Button2" runat="server" Text="Editar" CommandArgument='<%# Bind("idProduto") %>' CommandName="EditProduto" />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField>
+                        <ItemTemplate>
+                            <asp:LinkButton ID="Button3" runat="server" Text="Delete" CommandArgument='<%# Bind("idProduto") %>' CommandName="DeleteProduto" />
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>

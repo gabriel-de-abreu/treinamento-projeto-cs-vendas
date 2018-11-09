@@ -66,10 +66,20 @@ namespace SistemaVendas
         protected void gridProdutos_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             Produto produto = ProdutoBS.Read(Convert.ToInt32(e.CommandArgument));
-            txtNome.Text = produto.Nome;
-            txtValor.Text = produto.Valor.ToString();
-            list_fornecedor.SelectedValue = produto.IdFornecedor.ToString();
-            SetEditMode(produto.Id);
+
+            switch (e.CommandName)
+            {
+                case "EditProduto":
+                    txtNome.Text = produto.Nome;
+                    txtValor.Text = produto.Valor.ToString();
+                    list_fornecedor.SelectedValue = produto.IdFornecedor.ToString();
+                    SetEditMode(produto.Id);
+                    break;
+                case "DeleteProduto":
+                    ProdutoBS.Delete(produto);
+                    ReloadGrid();
+                    break;
+            }
             ClearLabel();
         }
 

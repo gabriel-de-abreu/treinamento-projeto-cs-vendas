@@ -57,6 +57,19 @@ namespace SistemaVendasDAO
             }
             return null;
         }
+
+        public Produto Delete(Produto produto)
+        {
+            MySqlCommand command = DBConnection.Instance.CreateCommand();
+            command.CommandText = "DELETE FROM `produto` WHERE idProduto = @id";
+            command.Parameters.AddWithValue("@id", produto.Id);
+            if (command.ExecuteNonQuery() > 0)
+            {
+                return produto;
+            }
+            return null;
+        }
+
         public DataTable GetAll()
         {
             DataTable table = new DataTable();
