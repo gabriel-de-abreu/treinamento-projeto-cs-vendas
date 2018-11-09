@@ -76,6 +76,10 @@ namespace SistemaVendas
 
         protected void btnAdicionar_Click(object sender, EventArgs e)
         {
+            if (!ValidateFields())
+            {
+                return;
+            }
             Itens itemAux = null;
             foreach (var carrinhoItem in carrinho)
             {
@@ -103,6 +107,8 @@ namespace SistemaVendas
             }
             Session["carrinhoCompras"] = carrinho;
             RenderItensTable();
+            ClearLabel();
+            ClearFields();
         }
 
         private void RenderFinishTransaction()
@@ -167,6 +173,41 @@ namespace SistemaVendas
             carrinho = new List<Itens>();
             RenderItensTable();
             RenderFinishTransaction();
+        }
+
+        private bool ValidateFields()
+        {
+            if (txtIdProduto.Text.Equals(""))
+            {
+                lblResultado.Text = "<div class=\"alert alert-danger\" role=\"alert\">Selecione um produto!</div>";
+                return false;
+            }
+            if (txtQuantidade.Text.Equals(""))
+            {
+                lblResultado.Text = "<div class=\"alert alert-danger\" role=\"alert\">Quantidade não pode ser vazio!</div>";
+                return false;
+            }
+            try
+            {
+                Convert.ToInt32(txtQuantidade.Text);
+            }
+            catch (Exception)
+            {
+                lblResultado.Text = "<div class=\"alert alert-danger\" role=\"alert\">Quantidade inválida, verifique e tente novamente!</div>";
+                return false;
+            }
+            return true;
+        }
+        private void ClearFields()
+        {
+            txtIdProduto.Text = "";
+            txtNomeProduto.Text = "";
+            txtPrecoProduto.Text = "";
+            txtQuantidade.Text = "";
+        }
+        private void ClearLabel()
+        {
+            lblResultado.Text = "";
         }
     }
 }

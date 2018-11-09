@@ -34,7 +34,7 @@
                     <label>
                         Quantidade
                     </label>
-                    <asp:TextBox ID="txtQuantidade" runat="server" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox ID="txtQuantidade" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
                 </div>
                 <div class="form-group">
                     <label>
