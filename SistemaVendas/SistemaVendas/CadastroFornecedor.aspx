@@ -29,7 +29,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="container margin-top-large text-center box-border">
+        <div class="container margin-top-large text-center box-border margin-bottom-large">
             <h3>Fornecedores Cadastrados
             </h3>
             <asp:GridView ID="gridFornecedores" runat="server" AutoGenerateColumns="False" OnRowCommand="gridFornecedores_RowCommand" CssClass="table view-table margin-top">

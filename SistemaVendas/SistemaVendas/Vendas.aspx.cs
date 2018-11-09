@@ -58,7 +58,7 @@ namespace SistemaVendas
             List<Itens> carrinho = Session["carrinhoCompras"] as List<Itens>;
             if (carrinho == null)
             {
-                return;
+                carrinho = new List<Itens>();
             }
             foreach (var item in carrinho)
             {
@@ -107,6 +107,11 @@ namespace SistemaVendas
 
         private void RenderFinishTransaction()
         {
+            carrinho = Session["carrinhoCompras"] as List<Itens>;
+            if (carrinho == null)
+            {
+                carrinho = new List<Itens>();
+            }
             if (carrinho.Count() > 0)
             {
                 placeHolderText.Visible = false;
@@ -150,8 +155,18 @@ namespace SistemaVendas
             };
 
             List<Itens> carrinho = Session["carrinhoCompras"] as List<Itens>;
-            VendaBS.Venda(venda, carrinho);
+            if (VendaBS.Venda(venda, carrinho))
+            {
+                lblResultado.Text = "<div class=\"alert alert-success\" role=\"alert\">Venda realizada com sucesso!</div>";
+            }
+            else
+            {
+                lblResultado.Text = "<div class=\"alert alert-danger\" role=\"alert\">Falha ao realizar venda!</div>";
+            }
             Session["carrinhoCompras"] = null;
+            carrinho = new List<Itens>();
+            RenderItensTable();
+            RenderFinishTransaction();
         }
     }
 }

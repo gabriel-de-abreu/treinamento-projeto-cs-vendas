@@ -35,7 +35,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="container box-border margin-top-large text-center">
+        <div class="container box-border margin-top-large text-center margin-bottom-large">
             <h3>Produtos Cadastrados</h3>
             <asp:GridView ID="gridProdutos" runat="server" AutoGenerateColumns="False" OnRowCommand="gridProdutos_RowCommand" CssClass="table view-table">
                 <Columns>

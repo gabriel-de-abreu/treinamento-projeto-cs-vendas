@@ -1,10 +1,13 @@
-﻿
+﻿.full-container {
+    height: 100%;
+}
+/*Borda para container*/
 .box-border {
     border: 1px solid black;
     border-radius: 6px;
     padding: 20px;
 }
-
+/*Margens*/
 .margin-top {
     margin-top: 1%;
 }
@@ -12,6 +15,11 @@
 .margin-top-large {
     margin-top: 5%;
 }
+
+.margin-bottom-large {
+    margin-bottom: 5%;
+}
+
 
 .view-table {
     border: none;
@@ -41,4 +49,3 @@
 .table-hover tbody tr:hover th {
     background-color: white;
 }
-/*Width fixada para os botões da tela de conta corrente*/
