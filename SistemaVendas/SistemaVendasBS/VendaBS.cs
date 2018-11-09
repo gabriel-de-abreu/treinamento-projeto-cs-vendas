@@ -2,6 +2,7 @@
 using SistemaVendasObjetos;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 
@@ -32,6 +33,11 @@ namespace SistemaVendasBS
                 return false;
 
             }
+        }
+        
+        public static DataTable GetAll()
+        {
+            return new VendaDAO().GetAll();
         }
     }
 }

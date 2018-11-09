@@ -74,6 +74,7 @@
     <Content Include="CadastroCliente.aspx" />
     <Content Include="CadastroFornecedor.aspx" />
     <Content Include="CadastroProduto.aspx" />
+    <Content Include="ConsultarVendas.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Style\style.css" />
     <Content Include="Vendas.aspx" />
@@ -100,6 +101,13 @@
     </Compile>
     <Compile Include="CadastroProduto.aspx.designer.cs">
       <DependentUpon>CadastroProduto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarVendas.aspx.cs">
+      <DependentUpon>ConsultarVendas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultarVendas.aspx.designer.cs">
+      <DependentUpon>ConsultarVendas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

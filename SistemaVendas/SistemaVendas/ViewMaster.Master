@@ -34,6 +34,9 @@
                 <div class="navbar-nav">
                     <a class="nav-link" href="Vendas.aspx">Vendas</a>
                 </div>
+                <div class="navbar-nav">
+                    <a class="nav-link" href="ConsultarVendas.aspx">Consultar Vendas</a>
+                </div>
             </div>
         </nav>
         <div class="container margin-top">
