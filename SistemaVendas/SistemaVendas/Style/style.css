@@ -1,0 +1,44 @@
+﻿
+.box-border {
+    border: 1px solid black;
+    border-radius: 6px;
+    padding: 20px;
+}
+
+.margin-top {
+    margin-top: 1%;
+}
+
+.margin-top-large {
+    margin-top: 5%;
+}
+
+.view-table {
+    border: none;
+}
+
+    .view-table tr th, .view-table tr td {
+        border: none;
+    }
+
+    .view-table tr:nth-child(2) td {
+        border-top: 1px solid lightgray;
+    }
+
+    .view-table tr td {
+        border-bottom: 1px solid lightgray;
+    }
+
+    .view-table tr:last-child td {
+        border-bottom: none;
+    }
+
+/*Remove a borda da primeia linha para as tabelas sem header*/
+.remove-border tbody tr:first-child td {
+    border-top: none;
+}
+/*Remove o efeito de hover dos cabeçalhos das tabelas*/
+.table-hover tbody tr:hover th {
+    background-color: white;
+}
+/*Width fixada para os botões da tela de conta corrente*/

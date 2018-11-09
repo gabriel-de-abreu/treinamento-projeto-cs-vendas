@@ -75,6 +75,7 @@
     <Content Include="CadastroFornecedor.aspx" />
     <Content Include="CadastroProduto.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Style\style.css" />
     <Content Include="Vendas.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>

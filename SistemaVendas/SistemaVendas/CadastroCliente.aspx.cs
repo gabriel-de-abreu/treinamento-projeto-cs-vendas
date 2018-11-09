@@ -30,12 +30,11 @@ namespace SistemaVendas
                 try
                 {
                     ClienteBS.Create(new Cliente(txtNome.Text, txtTelefone.Text, txtEmail.Text, txtCpf.Text));
-                    lblResult.Text = "Cliente cadastrado com sucesso!";
-
+                    lblResult.Text = "<div class=\"alert alert-success\" role=\"alert\">Cliente cadastrado com sucesso!</div>";
                 }
                 catch (MySqlException)
                 {
-                    lblResult.Text = "Cliente já Cadastrado!";
+                    lblResult.Text = "<div class=\"alert alert-danger\" role=\"alert\">Cliente já Cadastrado!!</div>";
                 }
             }
             else
@@ -46,12 +45,12 @@ namespace SistemaVendas
                     {
                         Id = Convert.ToInt32(Session["EditModeCliente"])
                     });
-                    lblResult.Text = "Cliente alterado com sucesso!";
-
+                    lblResult.Text = "<div class=\"alert alert-success\" role=\"alert\">Cliente alterado com sucesso!</div>";
                 }
                 catch (MySqlException)
                 {
-                    lblResult.Text = "CPF já Cadastrado!";
+                    lblResult.Text = "<div class=\"alert alert-danger\" role=\"alert\">CPF já cadastrado!</div>";
+
                 }
             }
             SetEditMode(-1);
