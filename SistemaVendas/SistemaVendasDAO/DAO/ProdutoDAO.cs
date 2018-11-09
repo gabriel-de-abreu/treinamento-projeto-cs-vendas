@@ -25,6 +25,38 @@ namespace SistemaVendasDAO
             return null;
         }
 
+        public Produto Read(int id)
+        {
+            MySqlCommand command = DBConnection.Instance.CreateCommand();
+            command.CommandText = "SELECT * FROM db_vendas.produto WHERE idProduto = @id;";
+            command.Parameters.AddWithValue("@id", id);
+            var reader = command.ExecuteReader();
+            Produto produto = null;
+            while (reader.Read())
+            {
+                produto = new Produto(reader["nomeProduto"].ToString(), float.Parse(reader["valorProduto"].ToString()), Convert.ToInt32(reader["Fornecedor_idFornecedor"]))
+                {
+                    Id = Convert.ToInt32(reader["idProduto"])
+                };
+            }
+            reader.Close();
+            return produto;
+        }
+
+        public Produto Update(Produto produto)
+        {
+            MySqlCommand command = DBConnection.Instance.CreateCommand();
+            command.CommandText = "UPDATE `produto` SET `nomeProduto`= @nome,`valorProduto`= @valor,`Fornecedor_idFornecedor`= @fornecedor WHERE idProduto = @id;";
+            command.Parameters.AddWithValue("@nome", produto.Nome);
+            command.Parameters.AddWithValue("@valor", produto.Valor);
+            command.Parameters.AddWithValue("@fornecedor", produto.IdFornecedor);
+            command.Parameters.AddWithValue("@id", produto.Id);
+            if (command.ExecuteNonQuery() > 0)
+            {
+                return produto;
+            }
+            return null;
+        }
         public DataTable GetAll()
         {
             DataTable table = new DataTable();

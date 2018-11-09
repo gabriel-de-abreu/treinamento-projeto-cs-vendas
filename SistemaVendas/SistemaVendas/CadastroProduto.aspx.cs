@@ -11,10 +11,14 @@ namespace SistemaVendas
 {
     public partial class CadastroProduto : System.Web.UI.Page
     {
+        public int editMode = -1;
         protected void Page_Load(object sender, EventArgs e)
         {
-            gridProdutos.DataSource = ProdutoBS.getAll();
-            gridProdutos.DataBind();
+            if (Session["EditModeProduto"] != null)
+            {
+                editMode = Convert.ToInt32(Session["EditModeProduto"]);
+            }
+            ReloadGrid();
             if (!IsPostBack)
             {
                 list_fornecedor.DataSource = FornecedorBS.GetAll();
@@ -26,15 +30,77 @@ namespace SistemaVendas
 
         protected void btnCadastro_Click(object sender, EventArgs e)
         {
-            try
+            if (editMode == -1)
             {
-                ProdutoBS.Create(new Produto(txtNome.Text, float.Parse(txtValor.Text), Convert.ToInt32(list_fornecedor.SelectedValue)));
-                lblResultado.Text = "Produto cadastrado com sucesso!";
+                try
+                {
+                    ProdutoBS.Create(new Produto(txtNome.Text, float.Parse(txtValor.Text), Convert.ToInt32(list_fornecedor.SelectedValue)));
+                    lblResultado.Text = "Produto cadastrado com sucesso!";
+                }
+                catch (Exception)
+                {
+                    lblResultado.Text = "Produto já cadastrado!";
+                }
             }
-            catch (Exception)
+            else
             {
-                lblResultado.Text = "Produto já cadastrado!";
+                try
+                {
+                    ProdutoBS.Update(new Produto(txtNome.Text, float.Parse(txtValor.Text), Convert.ToInt32(list_fornecedor.SelectedValue))
+                    {
+                        Id = editMode
+                    });
+                    lblResultado.Text = "Produto alterado com sucesso!";
+                }
+                catch (Exception)
+                {
+                    lblResultado.Text = "Produto já cadastrado!";
+                }
             }
+
+            SetEditMode(-1);
+            ReloadGrid();
+            ClearFields();
+        }
+
+        protected void gridProdutos_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            Produto produto = ProdutoBS.Read(Convert.ToInt32(e.CommandArgument));
+            txtNome.Text = produto.Nome;
+            txtValor.Text = produto.Valor.ToString();
+            list_fornecedor.SelectedValue = produto.IdFornecedor.ToString();
+            SetEditMode(produto.Id);
+            ClearLabel();
+        }
+
+        private void SetEditMode(int id)
+        {
+            if (id == -1)
+            {
+                btnCadastro.Text = "Cadastrar";
+                Session["EditModeProduto"] = -1;
+            }
+            else
+            {
+                btnCadastro.Text = "Salvar";
+                Session["EditModeProduto"] = id;
+            }
+        }
+
+        private void ReloadGrid()
+        {
+            gridProdutos.DataSource = ProdutoBS.getAll();
+            gridProdutos.DataBind();
+        }
+        private void ClearFields()
+        {
+            txtNome.Text = "";
+            txtValor.Text = "";
+            list_fornecedor.SelectedIndex = 0;
+        }
+        private void ClearLabel()
+        {
+            lblResultado.Text = "";
         }
     }
 }

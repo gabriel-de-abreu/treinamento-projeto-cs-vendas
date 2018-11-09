@@ -15,6 +15,14 @@ namespace SistemaVendasBS
             return new ProdutoDAO().Create(produto);
         }
 
+        public static Produto Read(int id)
+        {
+            return new ProdutoDAO().Read(id);
+        }
+        public static Produto Update(Produto produto)
+        {
+            return new ProdutoDAO().Update(produto);
+        }
         public static DataTable getAll()
         {
             return new ProdutoDAO().GetAll();

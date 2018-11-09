@@ -23,7 +23,7 @@
     </div>
     <div class="row">
         <div class="container">
-            <asp:GridView ID="gridFornecedores" runat="server" AutoGenerateColumns="False" OnRowCommand="gridFornecedores_RowCommand">
+            <asp:GridView ID="gridFornecedores" runat="server" AutoGenerateColumns="False" OnRowCommand="gridFornecedores_RowCommand" CssClass ="table">
                 <Columns>
                     <asp:TemplateField HeaderText="Nome">
                         <EditItemTemplate>

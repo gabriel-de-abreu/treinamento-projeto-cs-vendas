@@ -24,12 +24,12 @@
                 <asp:DropDownList ID="list_fornecedor" runat="server" CssClass="form-control"></asp:DropDownList>
             </div>
             <asp:Button ID="btnCadastro" runat="server" Text="Cadastrar" OnClick="btnCadastro_Click" />
-            <asp:Label ID="lblResultado" runat="server" Text="Label"></asp:Label>
+            <asp:Label ID="lblResultado" runat="server"></asp:Label>
         </div>
     </div>
     <div class="row">
         <div class="container">
-            <asp:GridView ID="gridProdutos" runat="server" AutoGenerateColumns="False">
+            <asp:GridView ID="gridProdutos" runat="server" AutoGenerateColumns="False" OnRowCommand="gridProdutos_RowCommand" CssClass ="table">
                 <Columns>
                     <asp:TemplateField HeaderText="Nome">
                         <EditItemTemplate>
@@ -53,6 +53,11 @@
                         </EditItemTemplate>
                         <ItemTemplate>
                             <asp:Label ID="Label3" runat="server" Text='<%# Bind("Fornecedor_idFornecedor") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField>
+                        <ItemTemplate>
+                            <asp:LinkButton ID="Button2" runat="server" Text="Editar" CommandArgument='<%# Bind("idProduto") %>' CommandName="EditProduto" />
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
