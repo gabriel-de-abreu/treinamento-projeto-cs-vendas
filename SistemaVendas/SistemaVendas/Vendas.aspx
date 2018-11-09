@@ -43,10 +43,11 @@
                     <asp:DropDownList ID="list_clientes" runat="server" CssClass="form-control"></asp:DropDownList>
                 </div>
                 <asp:Button ID="btnAdicionar" runat="server" Text="Adicionar" OnClick="btnAdicionar_Click" CssClass="btn btn-dark" />
+                <asp:Button ID="btnLimpar" runat="server" Text="Limpar" CssClass="btn btn-outline-dark" OnClick="btnLimpar_Click" />
             </div>
         </div>
         <div class="col">
-            <div class="container text-center box-border full-container">
+            <div class="container text-center box-border full-container scrollable-container">
                 <h4>Carrinho</h4>
                 <p id="placeHolderText" runat="server">Sem produtos no Carrinho!</p>
                 <asp:GridView ID="gridCarrinho" runat="server" AutoGenerateColumns="False" OnRowCommand="gridCarrinho_RowCommand" CssClass="view-table table">
@@ -90,8 +91,12 @@
                         </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
-                <asp:Button ID="btn_finalizar" runat="server" Text="Finalizar Venda" OnClick="btn_finalizar_Click" CssClass="btn btn-dark" />
             </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="container text-center margin-top">
+            <asp:Button ID="btn_finalizar" runat="server" Text="Finalizar Venda" OnClick="btn_finalizar_Click" CssClass="btn btn-dark" />
         </div>
     </div>
     <div class="row">

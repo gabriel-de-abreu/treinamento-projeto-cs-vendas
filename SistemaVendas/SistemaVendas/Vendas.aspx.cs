@@ -22,11 +22,13 @@ namespace SistemaVendas
 
             gridProdutos.DataSource = ProdutoBS.getAll();
             gridProdutos.DataBind();
-
-            list_clientes.DataSource = ClienteBS.GetAll();
-            list_clientes.DataTextField = "cpfCliente";
-            list_clientes.DataValueField = "idCliente";
-            list_clientes.DataBind();
+            if (!IsPostBack)
+            {
+                list_clientes.DataSource = ClienteBS.GetAll();
+                list_clientes.DataTextField = "cpfCliente";
+                list_clientes.DataValueField = "idCliente";
+                list_clientes.DataBind();
+            }
 
             RenderItensTable();
             RenderFinishTransaction();
@@ -41,6 +43,7 @@ namespace SistemaVendas
                     txtNomeProduto.Text = produto.Nome;
                     txtPrecoProduto.Text = produto.Valor.ToString();
                     txtIdProduto.Text = produto.Id.ToString();
+                    txtQuantidade.Text = "1";
                     break;
             }
 
@@ -208,6 +211,12 @@ namespace SistemaVendas
         private void ClearLabel()
         {
             lblResultado.Text = "";
+        }
+
+        protected void btnLimpar_Click(object sender, EventArgs e)
+        {
+            ClearFields();
+            ClearLabel();
         }
     }
 }

@@ -4,7 +4,7 @@
 /*Borda para container*/
 .box-border {
     border: 1px solid black;
-    border-radius: 6px;
+    border-radius: 3px;
     padding: 20px;
 }
 /*Margens*/
@@ -20,6 +20,10 @@
     margin-bottom: 5%;
 }
 
+.scrollable-container {
+    height:510px;
+    overflow-y: scroll;
+}
 
 .view-table {
     border: none;
