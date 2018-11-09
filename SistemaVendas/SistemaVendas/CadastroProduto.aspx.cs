@@ -30,6 +30,18 @@ namespace SistemaVendas
 
         protected void btnCadastro_Click(object sender, EventArgs e)
         {
+            if (!ValidateFields())
+            {
+                lblResultado.Text = "<div class=\"alert alert-danger\" role=\"alert\">Dados Inválidos, os campos não podem ser vazios!!</div>";
+                return;
+            }
+
+            if (!ValidateNumber())
+            {
+                lblResultado.Text = "<div class=\"alert alert-danger\" role=\"alert\">Valor inválido, verifique e tente novamente!</div>";
+                return;
+            }
+
             if (editMode == -1)
             {
                 try
@@ -120,6 +132,27 @@ namespace SistemaVendas
         private void ClearLabel()
         {
             lblResultado.Text = "";
+        }
+        private bool ValidateFields()
+        {
+            if (txtNome.Text.Equals("") || txtValor.Text.Equals(""))
+            {
+                return false;
+            }
+            return true;
+        }
+
+        private bool ValidateNumber()
+        {
+            try
+            {
+                float.Parse(txtValor.Text);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }
