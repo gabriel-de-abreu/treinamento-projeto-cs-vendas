@@ -13,6 +13,8 @@ namespace SistemaVendas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            gridProdutos.DataSource = ProdutoBS.getAll();
+            gridProdutos.DataBind();
             if (!IsPostBack)
             {
                 list_fornecedor.DataSource = FornecedorBS.GetAll();

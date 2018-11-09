@@ -19,5 +19,15 @@ namespace SistemaVendasBS
         {
             return new ClienteDAO().GetAll();
         }
+
+        public static Cliente Read(int id)
+        {
+            return new ClienteDAO().Read(id);
+        }
+
+        public static Cliente Update(Cliente cliente)
+        {
+            return new ClienteDAO().Update(cliente);
+        }
     }
 }

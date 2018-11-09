@@ -5,29 +5,29 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
         <div class="row">
-            <div class="col">
-                <div class="container">
-                    <div class="form-group">
-                        <label>Nome</label>
-                        <asp:TextBox ID="txtNome" runat="server" CssClass="form-control"></asp:TextBox>
-                    </div>
-                    <div class="form-group">
-                        <label>Telefone</label>
-                        <asp:TextBox ID="txtTelefone" runat="server" CssClass="form-control"></asp:TextBox>
-                    </div>
-                    <div class="form-group">
-                        <label>Email</label>
-                        <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control"></asp:TextBox>
-                    </div>
-                    <div class="form-group">
-                        <label>CPF</label>
-                        <asp:TextBox ID="txtCpf" runat="server" CssClass="form-control"></asp:TextBox>
-                    </div>
-                    <asp:Button ID="Button1" runat="server" Text="Cadastrar" OnClick="Button1_Click" />
-                    <asp:Label ID="lblResult" runat="server"></asp:Label>
+            <div class="container">
+                <div class="form-group">
+                    <label>Nome</label>
+                    <asp:TextBox ID="txtNome" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
+                <div class="form-group">
+                    <label>Telefone</label>
+                    <asp:TextBox ID="txtTelefone" runat="server" CssClass="form-control"></asp:TextBox>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control"></asp:TextBox>
+                </div>
+                <div class="form-group">
+                    <label>CPF</label>
+                    <asp:TextBox ID="txtCpf" runat="server" CssClass="form-control"></asp:TextBox>
+                </div>
+                <asp:Button ID="Button1" runat="server" Text="Cadastrar" OnClick="Button1_Click" />
+                <asp:Label ID="lblResult" runat="server"></asp:Label>
             </div>
-            <div class="col">
+        </div>
+        <div class="row">
+            <div class="container">
                 <asp:GridView ID="gridClientes" runat="server" AutoGenerateColumns="False" OnRowCommand="gridClientes_RowCommand" CssClass="table">
                     <Columns>
                         <asp:TemplateField HeaderText="Nome">

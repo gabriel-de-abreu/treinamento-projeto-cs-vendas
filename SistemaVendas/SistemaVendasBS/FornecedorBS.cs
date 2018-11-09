@@ -15,9 +15,20 @@ namespace SistemaVendasBS
             return new FornecedorDAO().Create(fornecedor);
         }
 
+        public static Fornecedor Read(int id)
+        {
+            return new FornecedorDAO().Read(id);
+        }
+
+        public static Fornecedor Update(Fornecedor fornecedor)
+        {
+            return new FornecedorDAO().Update(fornecedor);
+        }
         public static DataTable GetAll()
         {
             return new FornecedorDAO().GetAll();
         }
+
+
     }
 }
