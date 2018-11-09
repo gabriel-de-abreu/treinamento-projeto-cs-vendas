@@ -23,6 +23,12 @@ namespace SistemaVendas
 
         protected void btnCadastrar_Click(object sender, EventArgs e)
         {
+            if (!ValidateFields())
+            {
+                lblResultado.Text = "<div class=\"alert alert-danger\" role=\"alert\">Dados Inválidos, os campos não podem ser vazios!!</div>";
+                return;
+            }
+
             if (editMode == -1)
             {
                 try
@@ -50,6 +56,7 @@ namespace SistemaVendas
                     lblResultado.Text = "<div class=\"alert alert-danger\" role=\"alert\">Fornecedor já Cadastrado!!</div>";
                 }
             }
+            ClearFields();
             SetEditMode(-1);
             ReloadGrid();
         }
@@ -103,6 +110,14 @@ namespace SistemaVendas
             txtTelefone.Text = "";
         }
 
+        private bool ValidateFields()
+        {
+            if (txtNome.Text.Equals("") || txtNomeEmpresa.Text.Equals("") || txtTelefone.Text.Equals(""))
+            {
+                return false;
+            }
+            return true;
+        }
         private void ClearLabel()
         {
             lblResultado.Text = "";
