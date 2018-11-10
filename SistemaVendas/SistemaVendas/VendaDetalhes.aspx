@@ -13,7 +13,7 @@
         </div>
     </div>
     <div class="row">
-        <div id="table_itens_div" runat="server" class="container margin-top-large box-border text-center">
+        <div id="table_itens_div" runat="server" class="container margin-top-large margin-bottom-large box-border text-center">
             <h3>Itens comprados</h3>
         </div>
     </div>
