@@ -34,7 +34,17 @@ namespace SistemaVendasBS
 
             }
         }
-        
+
+        public static Venda Read(int id)
+        {
+            return new VendaDAO().Read(id);
+        }
+
+        public static List<Itens> GetAllItensVenda(int vendaId)
+        {
+            return new ItensDAO().GetAllVenda(vendaId);
+        }
+
         public static DataTable GetAll()
         {
             return new VendaDAO().GetAll();

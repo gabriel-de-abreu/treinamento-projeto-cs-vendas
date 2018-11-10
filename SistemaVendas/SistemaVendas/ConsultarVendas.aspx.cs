@@ -15,5 +15,16 @@ namespace SistemaVendas
             gridVendas.DataSource = VendaBS.GetAll();
             gridVendas.DataBind();
         }
+
+        protected void gridVendas_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            switch (e.CommandName)
+            {
+                case "VerDetalhes":
+                    Session["VendaDetalhes"] = e.CommandArgument;
+                    Response.Redirect("~/VendaDetalhes.aspx");
+                    break;
+            }
+        }
     }
 }

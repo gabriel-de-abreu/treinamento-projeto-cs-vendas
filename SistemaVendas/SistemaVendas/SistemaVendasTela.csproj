@@ -77,6 +77,7 @@
     <Content Include="ConsultarVendas.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Style\style.css" />
+    <Content Include="VendaDetalhes.aspx" />
     <Content Include="Vendas.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -113,6 +114,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VendaDetalhes.aspx.cs">
+      <DependentUpon>VendaDetalhes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VendaDetalhes.aspx.designer.cs">
+      <DependentUpon>VendaDetalhes.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Vendas.aspx.cs">
       <DependentUpon>Vendas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

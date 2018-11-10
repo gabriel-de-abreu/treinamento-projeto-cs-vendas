@@ -24,5 +24,28 @@ namespace SistemaVendasDAO
             }
             return null;
         }
+        public List<Itens> GetAllVenda(int idVenda)
+        {
+            List<Itens> itens = new List<Itens>();
+
+            MySqlCommand command = DBConnection.Instance.CreateCommand();
+            command.CommandText = "SELECT * FROM db_vendas.itens WHERE Venda_idVenda = @id;";
+            command.Parameters.AddWithValue("@id", idVenda);
+            var reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                Itens item = new Itens()
+                {
+                    Id = Convert.ToInt32(reader["idItens"]),
+                    IdProduto = Convert.ToInt32(reader["Produto_idProduto"]),
+                    IdVenda = Convert.ToInt32(reader["Venda_idVenda"]),
+                    Quantidade = Convert.ToInt32(reader["quantidadeItens"]),
+                    Valor = float.Parse(reader["itensValor"].ToString())
+                };
+                itens.Add(item);
+            }
+            reader.Close();
+            return itens;
+        }
     }
 }
