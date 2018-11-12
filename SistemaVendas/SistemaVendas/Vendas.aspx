@@ -78,10 +78,10 @@
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Valor">
                             <EditItemTemplate>
-                                <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("Valor") %>'></asp:TextBox>
+                                <asp:TextBox ID="TextBox4" runat="server" Text='<%# Eval("Valor") %>'></asp:TextBox>
                             </EditItemTemplate>
                             <ItemTemplate>
-                                <asp:Label ID="Label4" runat="server" Text='<%# Bind("Valor") %>'></asp:Label>
+                                <asp:Label ID="Label4" runat="server" Text='<%#  string.Format("{0:C}", Eval("Valor"))  %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField>
@@ -124,7 +124,7 @@
                                 <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("valorProduto") %>'></asp:TextBox>
                             </EditItemTemplate>
                             <ItemTemplate>
-                                <asp:Label ID="Label2" runat="server" Text='<%# Bind("valorProduto") %>'></asp:Label>
+                                <asp:Label ID="Label2" runat="server" Text='<%#string.Format("{0:C}", Eval("valorProduto")) %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Fornecedor">

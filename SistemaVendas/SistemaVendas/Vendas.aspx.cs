@@ -41,7 +41,7 @@ namespace SistemaVendas
             {
                 case "SelectProduto":
                     txtNomeProduto.Text = produto.Nome;
-                    txtPrecoProduto.Text = produto.Valor.ToString();
+                    txtPrecoProduto.Text = string.Format("{0:C}", produto.Valor);
                     txtIdProduto.Text = produto.Id.ToString();
                     txtQuantidade.Text = "1";
                     break;
@@ -53,10 +53,10 @@ namespace SistemaVendas
         {
             DataTable dt = new DataTable();
             dt.Clear();
-            dt.Columns.Add("ID");
-            dt.Columns.Add("Produto");
-            dt.Columns.Add("Quantidade");
-            dt.Columns.Add("Valor");
+            dt.Columns.Add("ID", typeof(int));
+            dt.Columns.Add("Produto", typeof(String));
+            dt.Columns.Add("Quantidade", typeof(int));
+            dt.Columns.Add("Valor", typeof(float));
 
             List<Itens> carrinho = Session["carrinhoCompras"] as List<Itens>;
             if (carrinho == null)
@@ -93,16 +93,17 @@ namespace SistemaVendas
             }
 
             Itens item = new Itens();
+            float valor = float.Parse(txtPrecoProduto.Text.Replace("R$",""));
             item = new Itens()
             {
                 IdProduto = Convert.ToInt32(txtIdProduto.Text),
                 Quantidade = Convert.ToInt32(txtQuantidade.Text),
-                Valor = Convert.ToInt32(txtQuantidade.Text) * float.Parse(txtPrecoProduto.Text)
+                Valor = Convert.ToInt32(txtQuantidade.Text) * valor
             };
             if (itemAux != null)
             {
                 itemAux.Quantidade += item.Quantidade;
-                itemAux.Valor = itemAux.Quantidade * float.Parse(txtPrecoProduto.Text);
+                itemAux.Valor = itemAux.Quantidade * valor;
             }
             else
             {

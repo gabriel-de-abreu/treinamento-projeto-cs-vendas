@@ -33,7 +33,7 @@
                             <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("totalVenda") %>'></asp:TextBox>
                         </EditItemTemplate>
                         <ItemTemplate>
-                            <asp:Label ID="Label3" runat="server" Text='<%# Bind("totalVenda") %>'></asp:Label>
+                            <asp:Label ID="Label3" runat="server" Text='<%# string.Format("{0:C}", Eval("totalVenda")) %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Cliente">

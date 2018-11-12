@@ -22,7 +22,7 @@ namespace SistemaVendas
                 table_div.InnerHtml += $"<tr> <td>CPF do Cliente</td ><td>{cliente.CPF}</td > </tr>";
                 table_div.InnerHtml += $"<tr> <td>Nome do Cliente</td ><td>{cliente.Nome}</td > </tr>";
                 table_div.InnerHtml += $"<tr> <td>Data da Venda</td ><td>{venda.Data}</td > </tr>";
-                table_div.InnerHtml += $"<tr> <td>Valor total</td ><td>{venda.ValorTotal}</td > </tr>";
+                table_div.InnerHtml += $"<tr> <td>Valor total</td ><td>{string.Format("{0:C}", venda.ValorTotal)}</td > </tr>";
                 table_div.InnerHtml += "</table>";
 
                 List<Itens> itens = VendaBS.GetAllItensVenda(venda.Id);
@@ -30,7 +30,7 @@ namespace SistemaVendas
                 table_itens_div.InnerHtml += "<tr> <th>Produto</th> <th>Quantidade</th> <th>Valor Total</th> </tr>";
                 foreach (var item in itens)
                 {
-                    table_itens_div.InnerHtml += $"<tr> <td>{ProdutoBS.Read(item.IdProduto).Nome} </td> <td>{item.Quantidade} </td> <td>{item.Valor}</td> </tr>";
+                    table_itens_div.InnerHtml += $"<tr> <td>{ProdutoBS.Read(item.IdProduto).Nome} </td> <td>{item.Quantidade} </td> <td>{string.Format("{0:C}", item.Valor)}</td> </tr>";
                 }
                 table_div.InnerHtml += "</table>";
             }
